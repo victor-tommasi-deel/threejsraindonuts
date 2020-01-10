@@ -16,7 +16,7 @@ class App extends React.Component {
 
   componentDidMount = () => {
     const start = init();
-    const viewer = document.getElementById('viewer');
+    const { viewer } = this.refs;
     viewer.appendChild(start.renderer.domElement);
     const { renderer, scene, camera } = start;
     this.setState({
@@ -31,7 +31,7 @@ class App extends React.Component {
     const { ADD, scene, camera, renderer, donuts } = this.state;
     if (scene !== null && camera !== null && renderer !== null) {
       const x = Math.random();
-      if (x < 0.10) {
+      if (x < 0.1) {
         const donut = createDonut();
         const newDonuts = [...donuts];
         newDonuts.push(donut);
